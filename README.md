@@ -23,9 +23,9 @@
 
 ### 🛠️ Tech Stack
 
-<p align="center">
+<h1 align="center">
   <img src="https://skillicons.dev/icons?i=python,cpp,fastapi,django,js,html,css,git,github,linux,arduino,raspberrypi" />
-</p>
+</h1>
 
 ---
 
