@@ -23,9 +23,9 @@
 
 ### 🛠️ Tech Stack
 
-<h1 align="center">
+<p align="center">
   <img src="https://skillicons.dev/icons?i=python,cpp,fastapi,django,js,html,css,git,github,linux,arduino,raspberrypi" />
-</h1>
+</p>
 
 ---
 
@@ -58,8 +58,8 @@ I work on different kinds of projects across **Python, C++, IoT, and Web Develop
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=ifreake&show_icons=true&hide_border=true&bg_color=0d1117&title_color=ff2d2d&icon_color=ff2d2d&text_color=ffffff" />
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=ifreake&layout=compact&hide_border=true&bg_color=0d1117&title_color=ff2d2d&text_color=ffffff" />
+  <img src="./profile/stats.svg" width="48%" />
+  <img src="./profile/top-langs.svg" width="48%" />
 </p>
 
 ---
