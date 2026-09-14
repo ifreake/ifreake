@@ -1,4 +1,6 @@
-<h1 align="center">🔴 Hey, I'm ifreake 👋</h1>
+<h1 align="center">
+  🔴 ifreake
+</h1>
 
 <p align="center">
   <b>Python & C++ Developer • IoT • Web • Automation</b>
@@ -8,20 +10,31 @@
   <i>Building things. Breaking things. Learning how they work.</i>
 </p>
 
----
-
-### 🧠 About Me
-
-* 🐍 Python developer
-* ⚙️ C++ developer
-* 🔌 Interested in IoT & embedded systems
-* 🌐 Building web applications & APIs
-* 🛠️ Working on automation and software projects
-* 🚀 Always learning and experimenting with new technologies
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-Developer-ff2d2d?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/C++-Developer-ff2d2d?style=flat-square&logo=cplusplus&logoColor=white" />
+  <img src="https://img.shields.io/badge/IoT-Developer-ff2d2d?style=flat-square&logo=arduino&logoColor=white" />
+  <img src="https://img.shields.io/badge/Web-Developer-ff2d2d?style=flat-square&logo=web&logoColor=white" />
+</p>
 
 ---
 
-### 🛠️ Tech Stack
+## 🧠 About Me
+
+I'm a developer interested in **Python, C++, IoT, and Web Development**.
+
+I enjoy building projects, experimenting with hardware and software, and turning ideas into something that actually works.
+
+* 🐍 Python development
+* ⚙️ C++ development
+* 🔌 IoT & embedded systems
+* 🌐 Web development & APIs
+* 🛠️ Automation & tools
+* 🚀 Always learning something new
+
+---
+
+## 🛠️ Tech Stack
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=python,cpp,fastapi,django,js,html,css,git,github,linux,arduino,raspberrypi" />
@@ -29,47 +42,84 @@
 
 ---
 
-### 🚀 What I Build
+## 🚀 What I Build
 
 <p align="center">
-
-🐍 <b>Python</b>     ⚙️ <b>C++</b>
-
-<br><br>
-
-🔌 <b>IoT</b>     🌐 <b>Web Development</b>
-
-<br><br>
-
-🛠️ <b>Automation</b>     💻 <b>Software Projects</b>
-
+  <b>🐍 Python</b>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>⚙️ C++</b>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>🔌 IoT</b>
 </p>
 
-I work on different kinds of projects across **Python, C++, IoT, and Web Development** — exploring ideas, building things, and learning along the way.
-
----
-
-### 📌 Featured Projects
-
-> 🚧 Currently building and experimenting...
-
----
-
-### 📊 GitHub Stats
+<p align="center">
+  <b>🌐 Web Development</b>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>🛠️ Automation</b>
+</p>
 
 <p align="center">
-  <img src="./profile/stats.svg" width="48%" />
-  <img src="./profile/top-langs.svg" width="48%" />
+  <b>💻 Software Projects</b>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>🔧 Hardware Projects</b>
+</p>
+
+<br>
+
+<p align="center">
+  <i>Different tools. Different ideas. One goal — build something useful.</i>
 </p>
 
 ---
 
-### 🤝 Let's Connect
+## 🔥 Current Focus
+
+```text
+🐍 Python
+⚙️ C++
+🔌 IoT
+🌐 Web
+🛠️ Automation
+```
+
+---
+
+## 📌 Featured Projects
 
 <p align="center">
-  <img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=ff2d2d" />
+  <img src="https://img.shields.io/badge/🚧%20Projects-Coming%20Soon-ff2d2d?style=for-the-badge" />
 </p>
 
 <p align="center">
-  <i>“Build. Break. Learn. Repeat.”</i>
+  <i>Currently building and experimenting...</i>
+</p>
+
+---
+
+## 🔴 Projects
+
+<p align="center">
+  <img src="https://img.shields.io/badge/01-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+  <img src="https://img.shields.io/badge/02-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+  <img src="https://img.shields.io/badge/03-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+</p>
+
+---
+
+## 🤝 Connect
+
+<p align="center">
+  <a href="https://github.com/ifreake">
+    <img src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=ff2d2d" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <b>🔴 Build. Break. Learn. Repeat.</b>
+</p>
+
+<p align="center">
+  <sub>© ifreake</sub>
 </p>
