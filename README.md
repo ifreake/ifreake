@@ -87,11 +87,13 @@ I enjoy building projects, experimenting with hardware and software, and turning
 ## 📌 Featured Projects
 
 <p align="center">
-  <img src="https://img.shields.io/badge/🚧%20Projects-Coming%20Soon-ff2d2d?style=for-the-badge" />
+  <a href="https://github.com/ifreake/Arduino-OLED-Tetris">
+    <img src="https://img.shields.io/badge/🎮%20Arduino%20OLED%20Tetris-ff2d2d?style=for-the-badge&logo=arduino&logoColor=white" />
+  </a>
 </p>
 
 <p align="center">
-  <i>Currently building and experimenting...</i>
+  <i>My first project — a Tetris game built with Arduino and an OLED display.</i>
 </p>
 
 ---
@@ -99,9 +101,15 @@ I enjoy building projects, experimenting with hardware and software, and turning
 ## 🔴 Projects
 
 <p align="center">
-  <img src="https://img.shields.io/badge/01-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+  <a href="https://github.com/ifreake/Arduino-OLED-Tetris">
+    <img src="https://img.shields.io/badge/01-Arduino%20OLED%20Tetris-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+  </a>
   <img src="https://img.shields.io/badge/02-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
   <img src="https://img.shields.io/badge/03-Coming%20Soon-0d1117?style=for-the-badge&labelColor=ff2d2d" />
+</p>
+
+<p align="center">
+  <i>🎮 Arduino • C++ • OLED • Embedded Systems</i>
 </p>
 
 ---
