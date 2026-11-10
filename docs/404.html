@@ -31,8 +31,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
         body { font-family: 'JetBrains Mono', monospace; background-color: #050505; color: #f3f4f6; }
-        .glow-red { text-shadow: 0 0 15px rgba(255, 0, 51, 0.7); }
-        .box-glow { box-shadow: 0 0 30px rgba(255, 0, 51, 0.15); border: 1px solid rgba(255, 0, 51, 0.3); }
+        .glow-red { text-shadow: 0 0 20px rgba(255, 0, 51, 0.8); }
+        .box-glow { box-shadow: 0 0 35px rgba(255, 0, 51, 0.15); border: 1px solid rgba(255, 0, 51, 0.3); }
         .glitch-anim { animation: glitch 2s infinite; }
         @keyframes glitch {
             0% { transform: translate(0) }
@@ -43,7 +43,7 @@
             100% { transform: translate(0) }
         }
         .scanline {
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(255, 0, 51, 0.05) 50%, rgba(255, 0, 51, 0.05));
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(255, 0, 51, 0.04) 50%, rgba(255, 0, 51, 0.04));
             background-size: 100% 4px;
         }
     </style>
@@ -77,17 +77,17 @@
         </div>
 
         <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
-            مسیر درخواستی شما وجود ندارد یا از رده خارج شده است. به شبکه اصلی بازگردید یا پینگ سیستم را مجدداً بررسی کنید.
+            The requested route does not exist or has been decommissioned. Reconnect to the primary mainframe or verify your telemetry link.
         </p>
 
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/ifreake/" class="w-full sm:w-auto px-8 py-3 bg-crimson hover:bg-crimson-dark text-white font-bold rounded-lg transition-all shadow-lg shadow-crimson/30 flex items-center justify-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                بازگشت به خانه (Dashboard)
+                Return to Dashboard
             </a>
             <button onclick="window.history.back()" class="w-full sm:w-auto px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold rounded-lg border border-zinc-800 transition-all">
-                مسیر قبلی (Back)
+                Previous Hop (Back)
             </button>
         </div>
 
@@ -99,10 +99,10 @@
     </div>
 
     <script>
-        // Display current invalid path
+        // Display current invalid path dynamically
         document.getElementById('invalid-path').innerText = window.location.pathname || '/unknown';
 
-        // Auto redirect timer
+        // Auto redirect countdown timer
         let timeLeft = 15;
         const timerElement = document.getElementById('redirect-timer');
         const countdown = setInterval(() => {
