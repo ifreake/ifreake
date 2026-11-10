@@ -1,6 +1,118 @@
-<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — ifreake</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0f14;color:#eef2f6;font:16px system-ui;text-align:center}.wrap{padding:30px}.code{color:#ff626b;font-size:80px;font-weight:800;line-height:1}a{color:#ff626b}</style>
-<div class="wrap"><div class="code">404</div><h1>Lost a signal?</h1><p>This page doesn't exist.</p><a href="./">Back to ifreake</a></div>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - SIGNAL LOST // ifreake</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505' stroke='%23ff0033' stroke-width='4'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='900' font-size='32' fill='%23ff0033'%3EiF%3C/text%3E%3C/svg%3E">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        crimson: {
+                            DEFAULT: '#ff0033',
+                            dark: '#cc0029',
+                            light: '#ff335c',
+                            glow: 'rgba(255, 0, 51, 0.4)'
+                        },
+                        void: {
+                            DEFAULT: '#050505',
+                            card: '#0a0a0a',
+                            border: '#1a1a1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+        body { font-family: 'JetBrains Mono', monospace; background-color: #050505; color: #f3f4f6; }
+        .glow-red { text-shadow: 0 0 15px rgba(255, 0, 51, 0.7); }
+        .box-glow { box-shadow: 0 0 30px rgba(255, 0, 51, 0.15); border: 1px solid rgba(255, 0, 51, 0.3); }
+        .glitch-anim { animation: glitch 2s infinite; }
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(255, 0, 51, 0.05) 50%, rgba(255, 0, 51, 0.05));
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-void min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden scanline">
+
+    <!-- Background Grid Effect -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none"></div>
+
+    <div class="max-w-xl w-full bg-void-card box-glow rounded-2xl p-8 relative z-10 text-center">
+        
+        <!-- Top Status Bar -->
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-void-border text-xs text-zinc-500">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-crimson animate-ping"></span>
+                <span class="text-crimson font-bold tracking-widest">ERROR: KERNEL_PANIC</span>
+            </div>
+            <span>SYS_ID: #IFREAKE_404</span>
+        </div>
+
+        <!-- Glitch 404 Title -->
+        <div class="my-6">
+            <h1 class="text-7xl md:text-9xl font-black text-crimson tracking-tighter glitch-anim glow-red">404</h1>
+            <p class="text-sm md:text-base text-zinc-400 mt-2 tracking-wider">TARGET ROUTE NOT FOUND IN SUBNET</p>
+        </div>
+
+        <!-- Path Telemetry Box -->
+        <div class="bg-black/80 border border-void-border rounded-lg p-3 my-6 text-left font-mono text-xs overflow-x-auto">
+            <div class="text-zinc-600 mb-1">// REQUESTED ENDPOINT:</div>
+            <div id="invalid-path" class="text-crimson font-bold break-all">/unknown-route</div>
+        </div>
+
+        <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
+            مسیر درخواستی شما وجود ندارد یا از رده خارج شده است. به شبکه اصلی بازگردید یا پینگ سیستم را مجدداً بررسی کنید.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/ifreake/" class="w-full sm:w-auto px-8 py-3 bg-crimson hover:bg-crimson-dark text-white font-bold rounded-lg transition-all shadow-lg shadow-crimson/30 flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                بازگشت به خانه (Dashboard)
+            </a>
+            <button onclick="window.history.back()" class="w-full sm:w-auto px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold rounded-lg border border-zinc-800 transition-all">
+                مسیر قبلی (Back)
+            </button>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="mt-8 pt-4 border-t border-void-border text-xs text-zinc-600 flex justify-between items-center">
+            <span>ifreake.github.io</span>
+            <span id="redirect-timer" class="text-crimson">Auto-redirect in 15s</span>
+        </div>
+    </div>
+
+    <script>
+        // Display current invalid path
+        document.getElementById('invalid-path').innerText = window.location.pathname || '/unknown';
+
+        // Auto redirect timer
+        let timeLeft = 15;
+        const timerElement = document.getElementById('redirect-timer');
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = `Auto-redirect in ${timeLeft}s`;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = '/ifreake/';
+            }
+        }, 1000);
+    </script>
+</body>
 </html>
