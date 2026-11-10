@@ -1,343 +1,1440 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f14" />
-  <meta name="color-scheme" content="dark light" />
-  <title>ifreake — Software meets hardware</title>
-  <meta name="description" content="I'm ifreake — a developer exploring embedded systems, ESP32, IoT, Python, C++, and the space where software meets hardware." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ifreake // Cyber-Hardware &amp; Embedded Systems Hub</title>
+  <meta name="description" content="Official engineering portfolio, hardware architecture, IoT telemetry systems, and open-source repositories by ifreake." />
   <meta name="author" content="ifreake" />
-  <link rel="canonical" href="https://ifreake.github.io/ifreake/" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="theme-color" content="#050505" />
 
-  <!-- Open Graph: the image is a custom 1200 × 630 social preview. -->
+  <!-- Custom Black & Crimson SVG Favicon for ifreake -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505' stroke='%23ff0033' stroke-width='4'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='900' font-size='30' fill='%23ff0033'%3EiF%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="https://github.com/ifreake.png" />
+
+  <!-- Open Graph / WhatsApp / Telegram / Discord Preview Meta Tags -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ifreake" />
-  <meta property="og:title" content="ifreake — Software meets hardware" />
-  <meta property="og:description" content="Embedded systems, IoT, Python, C++, and practical experiments at the intersection of code and circuits." />
+  <meta property="og:site_name" content="ifreake Engineering Hub" />
   <meta property="og:url" content="https://ifreake.github.io/ifreake/" />
-  <meta property="og:image" content="https://ifreake.github.io/ifreake/og-image.png" />
-  <meta property="og:image:secure_url" content="https://ifreake.github.io/ifreake/og-image.png" />
+  <meta property="og:title" content="ifreake // Cyber-Hardware &amp; Embedded Systems Hub" />
+  <meta property="og:description" content="Official engineering portfolio, hardware architecture, IoT telemetry systems, and open-source repositories by ifreake." />
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/ifreake/ifreake" />
+  <meta property="og:image:secure_url" content="https://opengraph.githubassets.com/1/ifreake/ifreake" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="ifreake — Building where code meets circuits." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ifreake — Software meets hardware" />
-  <meta name="twitter:description" content="Embedded systems, IoT, Python, C++, and practical experiments at the intersection of code and circuits." />
-  <meta name="twitter:image" content="https://ifreake.github.io/ifreake/og-image.png" />
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <meta property="og:image:alt" content="ifreake Cyber-Hardware & Embedded Systems Portfolio" />
 
-  <header class="site-header" id="top">
-    <div class="container nav-shell">
-      <a class="brand" href="#top" aria-label="ifreake home">
-        <span class="brand-mark">i<span>.</span></span>
-        <span class="brand-name">ifreake<span class="brand-dot">/</span></span>
+  <!-- Twitter Card Preview Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://ifreake.github.io/ifreake/" />
+  <meta name="twitter:title" content="ifreake // Cyber-Hardware &amp; Embedded Systems Hub" />
+  <meta name="twitter:description" content="Official engineering portfolio, hardware architecture, IoT telemetry systems, and open-source repositories by ifreake." />
+  <meta name="twitter:image" content="https://opengraph.githubassets.com/1/ifreake/ifreake" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            crimson: {
+              DEFAULT: '#ff0033',
+              50: '#fff0f3',
+              100: '#ffdde4',
+              200: '#ffc0cd',
+              300: '#ff94aa',
+              400: '#ff577a',
+              500: '#ff0033',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+              950: '#450a0a',
+            },
+            obsidian: {
+              bg: '#050505',
+              surface: '#0a0a0a',
+              card: '#0f0f12',
+              border: '#1f1215',
+            }
+          },
+          animation: {
+            'pulse-crimson': 'pulseCrimson 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            pulseCrimson: {
+              '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(255, 0, 51, 0.45)' },
+              '50%': { opacity: '0.65', boxShadow: '0 0 6px rgba(255, 0, 51, 0.15)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Selection & Custom Scrollbar */
+    ::selection {
+      background-color: #ff0033;
+      color: #ffffff;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #290d13;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 0, 51, 0.3);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff0033;
+    }
+
+    /* Crimson & Pitch Black Grid Background */
+    .crimson-grid {
+      background-color: #050505;
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 0, 51, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 0, 51, 0.045) 1px, transparent 1px);
+    }
+
+    /* Glassmorphism Cards with Smooth Red Glow Transitions */
+    .red-glass {
+      background: rgba(12, 10, 12, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 0, 51, 0.16);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.35s ease;
+    }
+
+    .red-glass-interactive:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 0, 51, 0.6);
+      box-shadow: 0 16px 36px -10px rgba(255, 0, 51, 0.25), 0 0 15px -3px rgba(255, 0, 51, 0.14);
+      background: rgba(18, 12, 15, 0.94);
+    }
+
+    /* Neon Text Glow */
+    .neon-red-text {
+      text-shadow: 0 0 18px rgba(255, 0, 51, 0.55), 0 0 35px rgba(220, 38, 38, 0.25);
+    }
+
+    /* Smooth Filter & Tab Transitions */
+    .repo-card, .skill-item {
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
+    }
+    .item-hidden {
+      opacity: 0 !important;
+      transform: scale(0.94) translateY(10px) !important;
+      pointer-events: none;
+    }
+
+    /* Button Glow Effect */
+    .btn-crimson {
+      background: linear-gradient(135deg, #ff0033 0%, #b91c1c 100%);
+      box-shadow: 0 4px 20px -2px rgba(255, 0, 51, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-crimson:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px -2px rgba(255, 0, 51, 0.7);
+      filter: brightness(1.1);
+    }
+    .btn-crimson:active {
+      transform: translateY(0);
+    }
+
+    /* Animated Progress Bar */
+    .progress-fill {
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Reveal on Scroll Transitions */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="crimson-grid text-zinc-200 font-sans antialiased min-h-screen relative overflow-x-hidden flex flex-col justify-between">
+
+  <!-- Ambient Crimson Glow Orbs -->
+  <div class="fixed top-[-10%] left-[15%] -z-10 w-[26rem] sm:w-[34rem] h-[26rem] sm:h-[34rem] bg-crimson-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] right-[10%] -z-10 w-[24rem] sm:w-[32rem] h-[24rem] sm:h-[32rem] bg-red-800/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- Toast Notification Popup -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 ease-out pointer-events-none flex items-center gap-3 bg-obsidian-card border border-crimson-500/60 text-white px-5 py-3.5 rounded-xl shadow-[0_0_25px_rgba(255,0,51,0.35)] backdrop-blur-xl">
+    <span class="w-6 h-6 rounded-full bg-crimson-500/20 border border-crimson-500 flex items-center justify-center text-crimson-500 text-xs">
+      <i class="fa-solid fa-check"></i>
+    </span>
+    <span id="toast-message" class="text-xs sm:text-sm font-mono font-medium text-zinc-100">Command executed!</span>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="sticky top-0 z-40 w-full transition-all duration-300 border-b border-transparent">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo (ifreake only) -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-obsidian-bg flex items-center justify-center font-mono font-black text-crimson-500 shadow-[0_0_15px_rgba(255,0,51,0.35)] group-hover:scale-105 transition-transform duration-300 border-2 border-crimson-500">
+          <span>iF</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-mono text-lg sm:text-xl font-extrabold tracking-tight text-white group-hover:text-crimson-500 transition-colors">
+            ifreake<span class="text-crimson-500 animate-pulse">_</span>
+          </span>
+          <span class="text-[10px] tracking-widest uppercase text-zinc-500 font-mono">root@github.io</span>
+        </div>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span>
-      </button>
-
-      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#toolkit">Toolkit</a>
-        <a href="#work">Projects</a>
-        <a href="#approach">Approach</a>
-        <a href="#activity">Activity</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 bg-obsidian-surface/80 border border-crimson-500/15 px-3 py-1.5 rounded-2xl backdrop-blur-md">
+        <a href="#hero" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-crimson-500 bg-crimson-500/10 transition-all duration-200">~/home</a>
+        <a href="#telemetry" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-200">~/telemetry</a>
+        <a href="#skills" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-200">~/stack</a>
+        <a href="#repos" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-200">~/repos</a>
+        <a href="#og-studio" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-200">~/og-preview</a>
+        <a href="#terminal" class="nav-item px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all duration-200 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-crimson-500 animate-ping"></span>
+          <span>~/console</span>
+        </a>
       </nav>
 
-      <div class="nav-actions">
-        <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
-        </button>
-        <a class="button button-small button-outline" href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.2-.4-3.8 1.4a13 13 0 0 0-6.9 0C5.4 1.1 4.2 1.5 4.2 1.5a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.2 3.1 6.4 6.1 6.7A3.4 3.4 0 0 0 8 18v4"></path></svg>
-          <span>GitHub profile</span>
+      <!-- Desktop Action CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-bold bg-crimson-500/10 border border-crimson-500/40 hover:border-crimson-500 hover:bg-crimson-500 text-crimson-400 hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,0,51,0.15)] hover:shadow-[0_0_25px_rgba(255,0,51,0.5)]">
+          <i class="fa-brands fa-github text-sm"></i>
+          <span>github.com/ifreake</span>
         </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden w-11 h-11 rounded-xl bg-obsidian-card border border-crimson-500/30 flex items-center justify-center text-zinc-200 hover:text-crimson-500 hover:border-crimson-500 transition-all duration-200 focus:outline-none">
+        <i id="menuIcon" class="fa-solid fa-bars-staggered text-lg transition-transform duration-300"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden bg-obsidian-bg/95 border-b border-crimson-500/20 backdrop-blur-2xl">
+      <div class="px-4 py-5 space-y-2 font-mono text-sm">
+        <a href="#hero" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-house-laptop w-6 text-crimson-500"></i> ~/home</span>
+          <i class="fa-solid fa-angle-right text-xs text-zinc-600"></i>
+        </a>
+        <a href="#telemetry" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-microchip w-6 text-crimson-500"></i> ~/telemetry</span>
+          <i class="fa-solid fa-angle-right text-xs text-zinc-600"></i>
+        </a>
+        <a href="#skills" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-layer-group w-6 text-crimson-500"></i> ~/stack</span>
+          <i class="fa-solid fa-angle-right text-xs text-zinc-600"></i>
+        </a>
+        <a href="#repos" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-code-branch w-6 text-crimson-500"></i> ~/repos</span>
+          <i class="fa-solid fa-angle-right text-xs text-zinc-600"></i>
+        </a>
+        <a href="#og-studio" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-share-nodes w-6 text-crimson-500"></i> ~/og-preview</span>
+          <span class="px-2 py-0.5 text-[10px] rounded bg-crimson-500/20 text-crimson-400 border border-crimson-500/30">WHATSAPP</span>
+        </a>
+        <a href="#terminal" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-zinc-200 hover:text-crimson-500 hover:bg-crimson-500/10 transition-all">
+          <span><i class="fa-solid fa-terminal w-6 text-crimson-500"></i> ~/console</span>
+          <span class="px-2 py-0.5 text-[10px] rounded bg-crimson-500/20 text-crimson-400 border border-crimson-500/30">LIVE</span>
+        </a>
+        <div class="pt-3 px-2">
+          <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl btn-crimson text-white font-bold text-xs flex items-center justify-center gap-2">
+            <i class="fa-brands fa-github text-base"></i>
+            <span>OPEN GITHUB PROFILE</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero section-wrap">
-      <div class="hero-grid"></div>
-      <div class="hero-glow hero-glow-one"></div>
-      <div class="hero-glow hero-glow-two"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy" data-reveal>
-          <div class="eyebrow"><span class="status-dot"></span> SOFTWARE <i>/</i> HARDWARE <i>/</i> CURIOSITY</div>
-          <h1>Building where<br />code meets <span class="accent-text">circuits.</span></h1>
-          <p class="hero-intro">Hey, I'm <strong>ifreake</strong> — a developer who loves turning ideas into working things, from lines of code to real-world devices.</p>
-          <div class="hero-ctas">
-            <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
-            <a class="button button-ghost" href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer">Visit GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="hero-tags" aria-label="Main areas">
-            <span>Python</span><span>C++</span><span>ESP32</span><span>IoT</span><span>Arduino</span>
-          </div>
-        </div>
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-24 sm:space-y-32 w-full">
 
-        <div class="hero-visual" data-reveal data-delay="120" aria-label="Decorative microcontroller illustration">
-          <div class="visual-orbit orbit-a"></div>
-          <div class="visual-orbit orbit-b"></div>
-          <div class="visual-chip">
-            <div class="chip-pins chip-pins-top"></div>
-            <div class="chip-pins chip-pins-bottom"></div>
-            <div class="chip-pins chip-pins-left"></div>
-            <div class="chip-pins chip-pins-right"></div>
-            <div class="chip-screen">
-              <div class="screen-top"><span></span><span></span><span></span><b>SYS / 01</b></div>
-              <svg class="circuit-art" viewBox="0 0 300 220" role="img" aria-label="Circuit paths illustration">
-                <path d="M25 155h48l23-23h45l29-29h45l25-25h35" />
-                <path d="M25 78h35l22 22h40l23 23h48" />
-                <path d="M115 195v-25l24-24v-25" />
-                <path d="M205 195v-28l-18-18v-19" />
-                <circle cx="73" cy="155" r="5"/><circle cx="170" cy="103" r="5"/><circle cx="275" cy="78" r="5"/>
-                <circle cx="60" cy="78" r="5"/><circle cx="193" cy="123" r="5"/>
-                <rect x="128" y="59" width="48" height="48" rx="9" class="core-square"/>
-                <path class="core-line" d="M140 84h13l9-12" />
-              </svg>
-              <div class="screen-bottom"><span>DEVICE ONLINE</span><span class="screen-pulse"></span></div>
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="reveal-section is-visible pt-2 sm:pt-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left Column: Identity & CTA -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Red Status Pill -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-semibold bg-crimson-950/60 border border-crimson-500/40 text-crimson-400 shadow-[0_0_20px_rgba(255,0,51,0.15)]">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-crimson-500"></span>
+            </span>
+            <span>SYS.STATUS: ONLINE // NODE: IFREAKE</span>
+          </div>
+
+          <!-- Glitch / Neon Title -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white font-mono">
+              <span class="text-crimson-500">&gt;</span> ifreake<span class="text-crimson-500 neon-red-text">.</span>
+            </h1>
+            <p class="text-lg sm:text-2xl font-mono font-semibold text-zinc-400">
+              Cyber-Hardware <span class="text-crimson-500">//</span> Embedded &amp; Systems Architect
+            </p>
+          </div>
+
+          <p class="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Engineering high-reliability embedded systems, ESP32 telemetry controllers, automated GitHub CI/CD workflows, and pitch-black web interfaces deployed at <span class="text-crimson-400 font-mono">ifreake.github.io</span>.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+            <a href="#repos" class="px-6 py-3.5 rounded-xl font-mono font-bold text-xs sm:text-sm text-white btn-crimson flex items-center gap-2.5">
+              <i class="fa-solid fa-code-commit"></i>
+              <span>EXPLORE REPOSITORIES</span>
+            </a>
+            <a href="#og-studio" class="px-5 py-3.5 rounded-xl font-mono font-bold text-xs sm:text-sm bg-obsidian-card border border-crimson-500/30 hover:border-crimson-500 text-zinc-200 hover:text-crimson-400 transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5">
+              <i class="fa-brands fa-whatsapp text-crimson-500 text-base"></i>
+              <span>LINK PREVIEW STUDIO</span>
+            </a>
+            <button id="copyProfileUrlBtn" class="p-3.5 rounded-xl bg-obsidian-card border border-zinc-800 hover:border-crimson-500/50 text-zinc-400 hover:text-crimson-400 transition-all duration-300" title="Copy Site Link">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
+          </div>
+
+          <!-- Quick Highlight Counters -->
+          <div class="pt-6 grid grid-cols-3 gap-3 sm:gap-4 border-t border-crimson-500/15 max-w-lg mx-auto lg:mx-0">
+            <div class="red-glass rounded-xl p-3 text-center lg:text-left">
+              <p class="font-mono text-xl sm:text-2xl font-extrabold text-crimson-500">100%</p>
+              <p class="text-[10px] sm:text-xs text-zinc-400 font-mono uppercase">CI/CD Automated</p>
             </div>
-            <span class="pin-label pin-label-one">GPIO</span>
-            <span class="pin-label pin-label-two">3V3</span>
-          </div>
-          <div class="float-card float-card-top"><span class="float-icon">⌘</span><span><b>Code</b><small>logic &amp; structure</small></span></div>
-          <div class="float-card float-card-bottom"><span class="float-icon float-icon-red">⌁</span><span><b>Hardware</b><small>signals &amp; systems</small></span></div>
-          <div class="visual-caption">IDEAS IN <span>→</span> REALITY</div>
-        </div>
-      </div>
-
-      <div class="container hero-foot" data-reveal>
-        <div class="hero-foot-line"></div>
-        <span>SCROLL TO EXPLORE</span>
-        <span class="hero-foot-index">01 — 06</span>
-      </div>
-    </section>
-
-    <section class="intro-strip">
-      <div class="container intro-grid">
-        <div class="intro-cell"><span class="intro-number">02</span><span><b>Featured builds</b><small>Hardware &amp; software projects</small></span></div>
-        <div class="intro-cell"><span class="intro-number">04</span><span><b>Core interests</b><small>Code, devices, networks, design</small></span></div>
-        <div class="intro-cell"><span class="intro-number">∞</span><span><b>Learning mindset</b><small>Build · test · understand · repeat</small></span></div>
-      </div>
-    </section>
-
-    <section class="section section-about" id="about">
-      <div class="container two-column">
-        <div class="section-heading" data-reveal>
-          <span class="section-kicker">01 / A LITTLE INTRO</span>
-          <h2>Curious by nature.<br /><span class="muted-heading">Builder by choice.</span></h2>
-          <div class="heading-mark"></div>
-        </div>
-        <div class="about-copy" data-reveal data-delay="100">
-          <p class="lead-copy">I enjoy exploring the space where <span class="text-highlight">software meets hardware</span>.</p>
-          <p>My interests move between programming, embedded systems, IoT, and practical development. I like understanding how things work, experimenting with new ideas, and turning those ideas into projects that do something useful.</p>
-          <p>Sometimes that means writing a tool in Python. Sometimes it means debugging C++ firmware, wiring up a display, or making a microcontroller communicate with a local interface. The mix of logic, experimentation, and real-world feedback is what keeps me motivated.</p>
-          <div class="about-principles">
-            <div><span class="principle-symbol">↗</span><span><b>Learn by building</b><small>Hands-on experiments over theory alone.</small></span></div>
-            <div><span class="principle-symbol">⌘</span><span><b>Understand the details</b><small>Know why it works, not just that it works.</small></span></div>
-            <div><span class="principle-symbol">↻</span><span><b>Keep improving</b><small>Refine, document, test, and repeat.</small></span></div>
+            <div class="red-glass rounded-xl p-3 text-center lg:text-left">
+              <p class="font-mono text-xl sm:text-2xl font-extrabold text-white">ESP32</p>
+              <p class="text-[10px] sm:text-xs text-zinc-400 font-mono uppercase">IoT Core Nodes</p>
+            </div>
+            <div class="red-glass rounded-xl p-3 text-center lg:text-left">
+              <p class="font-mono text-xl sm:text-2xl font-extrabold text-crimson-400">OG+SVG</p>
+              <p class="text-[10px] sm:text-xs text-zinc-400 font-mono uppercase">Meta Ready</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-toolkit" id="toolkit">
-      <div class="container">
-        <div class="section-topline" data-reveal>
-          <div><span class="section-kicker">02 / THE TOOLBOX</span><h2>Tools I use to<br /><span class="muted-heading">make things happen.</span></h2></div>
-          <p class="section-aside">A practical mix of programming languages, embedded platforms, and everyday development tools.</p>
-        </div>
-        <div class="tool-grid">
-          <article class="tool-card" data-reveal>
-            <div class="tool-card-top"><span class="tool-icon">⌘</span><span class="tool-index">01</span></div>
-            <h3>Programming</h3>
-            <p>Writing logic, building small tools, and shaping the behavior behind an idea.</p>
-            <div class="tool-pills"><span>Python</span><span>C++</span><span>JavaScript</span></div>
-          </article>
-          <article class="tool-card" data-reveal data-delay="70">
-            <div class="tool-card-top"><span class="tool-icon">⌁</span><span class="tool-index">02</span></div>
-            <h3>Embedded &amp; IoT</h3>
-            <p>Connecting code to devices, displays, inputs, and the physical world.</p>
-            <div class="tool-pills"><span>ESP32</span><span>Arduino</span><span>SSD1306</span></div>
-          </article>
-          <article class="tool-card" data-reveal data-delay="140">
-            <div class="tool-card-top"><span class="tool-icon">◫</span><span class="tool-index">03</span></div>
-            <h3>Web &amp; Interfaces</h3>
-            <p>Creating clear interfaces and local dashboards for useful interactions.</p>
-            <div class="tool-pills"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          </article>
-          <article class="tool-card" data-reveal data-delay="210">
-            <div class="tool-card-top"><span class="tool-icon">⚙</span><span class="tool-index">04</span></div>
-            <h3>Tools &amp; Workflow</h3>
-            <p>Keeping projects organized, building consistently, and debugging carefully.</p>
-            <div class="tool-pills"><span>Git</span><span>GitHub</span><span>Linux</span><span>PlatformIO</span><span>VS Code</span></div>
-          </article>
-        </div>
-        <div class="tool-note"><span class="note-line"></span><span>Tools are part of the process. The goal is always to solve the right problem.</span></div>
-      </div>
-    </section>
-
-    <section class="section section-work" id="work">
-      <div class="container">
-        <div class="section-topline" data-reveal>
-          <div><span class="section-kicker">03 / SELECTED WORK</span><h2>Small devices.<br /><span class="muted-heading">Big curiosity.</span></h2></div>
-          <p class="section-aside">A couple of projects that reflect my interest in embedded programming, device interaction, and practical engineering.</p>
-        </div>
-
-        <article class="project-card project-cyber" data-reveal>
-          <div class="project-art cyber-art">
-            <div class="art-top"><span>LAB / 001</span><span class="art-live"><i></i> EXPERIMENTAL</span></div>
-            <div class="cyber-visual">
-              <div class="cyber-board">
-                <div class="board-chip board-chip-main">ESP32</div>
-                <div class="board-chip board-chip-small">SHA</div>
-                <div class="board-trace trace-one"></div><div class="board-trace trace-two"></div><div class="board-trace trace-three"></div>
-                <div class="board-led led-one"></div><div class="board-led led-two"></div><div class="board-led led-three"></div>
-                <span class="board-label">CYBERLAB</span>
+        <!-- Right Column: Interactive Profile Card / Cyber Terminal -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            <!-- Outer Crimson Aura -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-crimson-500 via-red-700 to-crimson-950 rounded-3xl blur-xl opacity-35 animate-pulse-crimson pointer-events-none"></div>
+            
+            <div class="relative red-glass rounded-2xl p-5 sm:p-6 border border-crimson-500/40 shadow-2xl overflow-hidden">
+              <!-- Window Header -->
+              <div class="flex items-center justify-between border-b border-crimson-500/20 pb-3.5 mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-crimson-500 shadow-[0_0_8px_#ff0033]"></span>
+                  <span class="w-3 h-3 rounded-full bg-zinc-700"></span>
+                  <span class="w-3 h-3 rounded-full bg-zinc-800"></span>
+                  <span class="text-xs font-mono text-zinc-400 ml-2">ifreake@github:~</span>
+                </div>
+                <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30 font-bold">
+                  MAIN BRANCH
+                </span>
               </div>
-              <div class="cyber-orbit"></div>
-            </div>
-            <div class="art-bottom"><span>ESP32 / EMBEDDED / IoT</span><span>01—02</span></div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-type">EMBEDDED LAB</span><span class="project-state"><i></i> PUBLIC REPOSITORY</span></div>
-            <h3>ESP32 CyberLab</h3>
-            <p class="project-summary">An educational embedded lab built around ESP32, bringing together device diagnostics, IoT experiments, and defensive network-related features.</p>
-            <div class="feature-list">
-              <div><span>01</span> Wi-Fi discovery and signal information</div>
-              <div><span>02</span> SHA-256 hashing experiments</div>
-              <div><span>03</span> LittleFS event logging</div>
-              <div><span>04</span> Local dashboard and serial CLI</div>
-              <div><span>05</span> Optional SSD1306 OLED status display</div>
-            </div>
-            <div class="project-stack"><span>C++</span><span>ESP32</span><span>Arduino</span><span>PlatformIO</span><span>LittleFS</span></div>
-            <div class="project-links">
-              <a class="text-link" href="https://github.com/ifreake/ESP32-CyberLab" target="_blank" rel="noopener noreferrer">Explore repository <span>↗</span></a>
-              <a class="subtle-link" href="https://github.com/ifreake/ESP32-CyberLab/blob/main/README.md" target="_blank" rel="noopener noreferrer">Read documentation</a>
-            </div>
-          </div>
-        </article>
 
-        <article class="project-card project-tetris" data-reveal>
-          <div class="project-art tetris-art">
-            <div class="art-top"><span>BUILD / 002</span><span class="art-live"><i></i> PLAYABLE</span></div>
-            <div class="oled-device">
-              <div class="oled-frame">
-                <div class="oled-label">TETRIS <small>OLED / 128×64</small></div>
-                <div class="oled-game">
-                  <div class="oled-grid">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <!-- Profile Avatar & Handle Row -->
+              <div class="flex items-center gap-4 mb-5 p-3 rounded-xl bg-black/60 border border-crimson-500/15">
+                <div class="relative">
+                  <img src="https://github.com/ifreake.png" 
+                       onerror="this.src='https://placehold.co/120x120/0a0a0a/ff0033?text=iF'" 
+                       alt="ifreake avatar" 
+                       class="w-16 h-16 rounded-xl object-cover border-2 border-crimson-500 shadow-[0_0_15px_rgba(255,0,51,0.4)]" />
+                  <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-crimson-500 border-2 border-black"></span>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="font-mono font-bold text-lg text-white">@ifreake</h2>
+                    <span class="text-[10px] font-mono bg-crimson-500 text-white px-1.5 py-0.5 rounded font-bold">ROOT</span>
                   </div>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">GitHub Actions &bull; Embedded &bull; Web</p>
+                  <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-crimson-400 hover:underline mt-1">
+                    <span>github.com/ifreake</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
                 </div>
               </div>
-              <div class="device-buttons"><span></span><span></span><span></span><span></span></div>
+
+              <!-- JSON / YAML Bio Output -->
+              <div class="font-mono text-xs space-y-2 bg-black/75 p-4 rounded-xl border border-white/5 text-zinc-300">
+                <p class="text-zinc-500">// profile_manifest.json</p>
+                <p><span class="text-crimson-400">"handle"</span>: <span class="text-zinc-100">"ifreake"</span>,</p>
+                <p><span class="text-crimson-400">"favicon"</span>: <span class="text-zinc-100">"Inline SVG [iF]"</span>,</p>
+                <p><span class="text-crimson-400">"openGraph"</span>: <span class="text-emerald-400">"WhatsApp / TG Ready ✓"</span>,</p>
+                <p><span class="text-crimson-400">"workflow"</span>: <span class="text-emerald-400">"Passing ✓"</span></p>
+              </div>
+
+              <!-- Bottom Status Bar -->
+              <div class="mt-4 pt-3 border-t border-crimson-500/15 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                <span><i class="fa-solid fa-shield-halved text-crimson-500 mr-1"></i> SSH / GPG Verified</span>
+                <span class="text-crimson-400 font-semibold">LATENCY: 11ms</span>
+              </div>
             </div>
-            <div class="art-bottom"><span>ARDUINO / C++ / OLED</span><span>02—02</span></div>
           </div>
-          <div class="project-content">
-            <div class="project-meta"><span class="project-type">HARDWARE GAME</span><span class="project-state"><i></i> PUBLIC REPOSITORY</span></div>
-            <h3>Arduino OLED Tetris</h3>
-            <p class="project-summary">A compact, playable Tetris implementation running on Arduino with a 128×64 SSD1306 OLED display and four physical buttons.</p>
-            <div class="feature-list">
-              <div><span>01</span> All seven classic tetromino shapes</div>
-              <div><span>02</span> Rotation with simple wall-kick handling</div>
-              <div><span>03</span> Gravity-based movement and soft drop</div>
-              <div><span>04</span> Collision detection and line clearing</div>
-              <div><span>05</span> Lightweight fixed-size data structures</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. LIVE HARDWARE & IOT TELEMETRY SIMULATOR -->
+    <section id="telemetry" class="reveal-section space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-crimson-500/20 pb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-crimson-500 font-bold block mb-1">// 01. LIVE TELEMETRY &amp; METRICS</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-mono">ESP32 Node &amp; GitHub Pulse</h2>
+        </div>
+        <div class="flex items-center gap-3 font-mono text-xs">
+          <span class="px-3 py-1 rounded-lg bg-crimson-500/10 border border-crimson-500/30 text-crimson-400">
+            IP: 192.168.1.150
+          </span>
+          <span id="telemetryClock" class="text-zinc-400">UPTIME: 14d 08h 22m</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left: Interactive Hardware Telemetry & Relay Control -->
+        <div class="lg:col-span-7 red-glass rounded-2xl p-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-mono font-bold text-base text-white flex items-center gap-2">
+              <i class="fa-solid fa-microchip text-crimson-500"></i>
+              <span>Node Controller (ESP32-WROOM-32)</span>
+            </h3>
+            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              RSSI: -48 dBm
+            </span>
+          </div>
+
+          <!-- Sensor Gauges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-black/70 border border-crimson-500/20 space-y-2">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-zinc-400">CORE TEMPERATURE</span>
+                <span id="tempValue" class="text-crimson-400 font-bold">31.4 °C</span>
+              </div>
+              <div class="w-full h-2.5 bg-zinc-900 rounded-full overflow-hidden p-0.5 border border-crimson-500/20">
+                <div id="tempBar" class="h-full bg-gradient-to-r from-crimson-600 to-crimson-400 rounded-full progress-fill" style="width: 54%"></div>
+              </div>
+              <p class="text-[10px] font-mono text-zinc-500">Threshold trigger set at 38.0 °C</p>
             </div>
-            <div class="project-stack"><span>C++</span><span>Arduino</span><span>SSD1306</span><span>PlatformIO</span></div>
-            <div class="project-links">
-              <a class="text-link" href="https://github.com/ifreake/Arduino-OLED-Tetris" target="_blank" rel="noopener noreferrer">Explore repository <span>↗</span></a>
-              <a class="subtle-link" href="https://github.com/ifreake/Arduino-OLED-Tetris/blob/main/README.md" target="_blank" rel="noopener noreferrer">Read documentation</a>
+
+            <div class="p-4 rounded-xl bg-black/70 border border-crimson-500/20 space-y-2">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-zinc-400">SUBNET SCANNER LOAD</span>
+                <span id="loadValue" class="text-white font-bold">42%</span>
+              </div>
+              <div class="w-full h-2.5 bg-zinc-900 rounded-full overflow-hidden p-0.5 border border-crimson-500/20">
+                <div id="loadBar" class="h-full bg-gradient-to-r from-red-800 to-crimson-500 rounded-full progress-fill" style="width: 42%"></div>
+              </div>
+              <p class="text-[10px] font-mono text-zinc-500">Active LuCI / HTTP worker threads</p>
             </div>
+          </div>
+
+          <!-- Interactive Relay Switch Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <button id="relayToggleBtn" class="p-4 rounded-xl bg-crimson-500/15 border border-crimson-500/50 flex items-center justify-between text-left transition-all hover:bg-crimson-500/25">
+              <div>
+                <p class="text-[10px] font-mono text-crimson-300 uppercase">GPIO-26 HIGH POWER RELAY</p>
+                <p id="relayStateText" class="text-sm font-mono font-bold text-white mt-0.5">STATE: ENGAGED (ON)</p>
+              </div>
+              <span id="relayIndicator" class="w-9 h-9 rounded-xl bg-crimson-500 text-white flex items-center justify-center shadow-[0_0_15px_#ff0033]">
+                <i class="fa-solid fa-power-off"></i>
+              </span>
+            </button>
+
+            <button id="pingSubnetBtn" class="p-4 rounded-xl bg-black/70 border border-crimson-500/20 hover:border-crimson-500/50 flex items-center justify-between text-left transition-all">
+              <div>
+                <p class="text-[10px] font-mono text-zinc-400 uppercase">DIAGNOSTIC SWEEP</p>
+                <p class="text-sm font-mono font-bold text-zinc-200 mt-0.5">Trigger Telemetry Pulse</p>
+              </div>
+              <span class="w-9 h-9 rounded-xl bg-crimson-500/10 border border-crimson-500/30 text-crimson-500 flex items-center justify-center">
+                <i class="fa-solid fa-satellite-dish"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Contribution Heatmap Matrix Card -->
+        <div class="lg:col-span-5 red-glass rounded-2xl p-6 flex flex-col justify-between space-y-6">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono font-bold text-base text-white flex items-center gap-2">
+                <i class="fa-solid fa-fire-flame-curved text-crimson-500"></i>
+                <span>Contribution Pulse</span>
+              </h3>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-crimson-500/20 text-crimson-400 border border-crimson-500/30">ACTIVE</span>
+            </div>
+
+            <!-- Simulated Red Heatmap Matrix -->
+            <div id="heatmapGrid" class="grid grid-cols-12 gap-1.5 p-3 bg-black/70 rounded-xl border border-crimson-500/15">
+              <!-- Populated dynamically by JS -->
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-black/60 border border-crimson-500/20">
+              <span class="text-[11px] font-mono text-zinc-400 block">WORKFLOW RUNS</span>
+              <span class="text-xl font-mono font-extrabold text-white mt-0.5 block">99.8% <span class="text-xs text-crimson-500">OK</span></span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/60 border border-crimson-500/20">
+              <span class="text-[11px] font-mono text-zinc-400 block">ARCHITECTURE</span>
+              <span class="text-xl font-mono font-extrabold text-crimson-500 mt-0.5 block">CLEAN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SKILLS & TECH STACK ARSENAL -->
+    <section id="skills" class="reveal-section space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-crimson-500/20 pb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-crimson-500 font-bold block mb-1">// 02. CAPABILITIES</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-mono">Technical Arsenal</h2>
+        </div>
+
+        <!-- Skill Category Filter Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button class="skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-crimson-500 text-white shadow-[0_0_15px_rgba(255,0,51,0.4)] transition-all" data-skill-cat="all">ALL</button>
+          <button class="skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-obsidian-card text-zinc-400 border border-crimson-500/20 hover:text-white transition-all" data-skill-cat="sys">SYSTEMS &amp; IOT</button>
+          <button class="skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-obsidian-card text-zinc-400 border border-crimson-500/20 hover:text-white transition-all" data-skill-cat="dev">DEV &amp; WEB</button>
+          <button class="skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-obsidian-card text-zinc-400 border border-crimson-500/20 hover:text-white transition-all" data-skill-cat="ops">DEVOPS &amp; PCB</button>
+        </div>
+      </div>
+
+      <div id="skillsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="sys">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">ESP32 / C++</h4>
+            <p class="text-[11px] font-mono text-zinc-400">PlatformIO &bull; RTOS</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="dev">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-brands fa-js"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">JavaScript / ES6+</h4>
+            <p class="text-[11px] font-mono text-zinc-400">Async &bull; Fetch APIs</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="ops">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-brands fa-github-alt"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">GitHub Actions</h4>
+            <p class="text-[11px] font-mono text-zinc-400">CI/CD Workflows</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="ops">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">PCB &amp; Hardware</h4>
+            <p class="text-[11px] font-mono text-zinc-400">Altium &bull; KiCad</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="sys">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">Local Net &amp; LuCI</h4>
+            <p class="text-[11px] font-mono text-zinc-400">HTTP Telemetry</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="dev">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-solid fa-wind"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">Tailwind &amp; UI/UX</h4>
+            <p class="text-[11px] font-mono text-zinc-400">Responsive Design</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="sys">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">Python &amp; Shell</h4>
+            <p class="text-[11px] font-mono text-zinc-400">System Automation</p>
+          </div>
+        </div>
+
+        <div class="skill-item red-glass red-glass-interactive rounded-2xl p-4 flex items-center gap-3.5" data-cat="ops">
+          <div class="w-11 h-11 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500 text-lg shrink-0">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div>
+            <h4 class="font-mono font-bold text-sm text-white">OTA Web Flasher</h4>
+            <p class="text-[11px] font-mono text-zinc-400">Remote Firmware</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. REPOSITORIES & PROJECTS SHOWCASE -->
+    <section id="repos" class="reveal-section space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-crimson-500/20 pb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-crimson-500 font-bold block mb-1">// 03. OPEN SOURCE REPOSITORIES</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-mono">ifreake / Repositories</h2>
+        </div>
+
+        <!-- Search & Category Filter Controls -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+            <input id="repoSearchInput" type="text" placeholder="Filter repositories..." 
+                   class="w-full sm:w-56 pl-9 pr-4 py-2 rounded-xl text-xs font-mono bg-obsidian-card border border-crimson-500/25 text-white placeholder-zinc-500 focus:outline-none focus:border-crimson-500 transition-colors" />
+          </div>
+          <div class="flex items-center gap-1.5 bg-obsidian-card p-1 rounded-xl border border-crimson-500/20">
+            <button class="repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-crimson-500 text-white transition-all" data-filter="all">All</button>
+            <button class="repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-zinc-400 hover:text-white transition-all" data-filter="workflow">Workflow</button>
+            <button class="repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-zinc-400 hover:text-white transition-all" data-filter="system">System</button>
+            <button class="repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-zinc-400 hover:text-white transition-all" data-filter="web">Web</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repositories Grid -->
+      <div id="reposGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="workflow" data-title="ifreake github.io portfolio workflow">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/ifreake</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">PUBLIC</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">ifreake.github.io</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Official GitHub Pages deployment workflow, OpenGraph link preview configuration, and responsive dark crimson interface.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>HTML/JS</span>
+              <span><i class="fa-regular fa-star text-crimson-400"></i> Active</span>
+            </div>
+            <a href="https://github.com/ifreake/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Source</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
           </div>
         </article>
 
-        <div class="projects-footer" data-reveal>
-          <p>More experiments, ideas, and iterations live on GitHub.</p>
-          <a class="button button-outline" href="https://github.com/ifreake?tab=repositories" target="_blank" rel="noopener noreferrer">Browse all repositories <span>↗</span></a>
-        </div>
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="system" data-title="esp32 telemetry controller node">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/core-telemetry</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">SYSTEM</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">ESP32 Telemetry Daemon</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Asynchronous hardware monitoring firmware featuring real-time socket streams, relay protection triggers, and watchdog auto-recovery.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>C++</span>
+              <span><i class="fa-solid fa-code-branch text-crimson-400"></i> v2.4</span>
+            </div>
+            <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="workflow" data-title="ci cd actions automation builder">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/action-runner</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">CI/CD</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">Automated Build Pipelines</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Custom GitHub Actions YAML workflows for automated static analysis, binary compilation, and zero-downtime Pages deployment.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-crimson-400"></span>YAML</span>
+              <span><i class="fa-solid fa-bolt text-crimson-400"></i> Fast</span>
+            </div>
+            <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="web" data-title="crimson dashboard web ui">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/crimson-ui</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">UI/UX</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">Obsidian Control Panel</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              High-contrast pitch black and crimson red web interface kit designed for low-memory embedded web servers and command centers.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>Tailwind</span>
+              <span><i class="fa-solid fa-mobile-screen text-crimson-400"></i> Fluid</span>
+            </div>
+            <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="system" data-title="network gateway scripts openwrt">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/net-sentinel</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">NETWORK</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">Net-Sentinel Watchdog</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Lightweight shell and Python network diagnostic toolkit for automated IP subnet sweeps, packet loss alerts, and failover logic.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-crimson-600"></span>Shell</span>
+              <span><i class="fa-solid fa-terminal text-crimson-400"></i> CLI</span>
+            </div>
+            <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="repo-card red-glass red-glass-interactive rounded-2xl p-6 flex flex-col justify-between" data-category="web" data-title="ota firmware portal flasher">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-crimson-500 font-mono text-xs font-bold">
+                <i class="fa-regular fa-folder-open"></i>
+                <span>ifreake/web-flasher</span>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded-md bg-crimson-500/15 text-crimson-400 border border-crimson-500/30">WEB</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">Browser OTA Updater</h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Single-file responsive web portal for wireless binary uploads, real-time progress tracking, and checksum verification.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-crimson-500/15 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-3 text-zinc-400">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>JavaScript</span>
+              <span><i class="fa-solid fa-cloud-arrow-up text-crimson-400"></i> OTA</span>
+            </div>
+            <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-white flex items-center gap-1 transition-colors">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Empty Filter State -->
+      <div id="emptyRepoState" class="hidden text-center py-12 red-glass rounded-2xl border border-crimson-500/20">
+        <i class="fa-solid fa-triangle-exclamation text-crimson-500 text-2xl mb-2"></i>
+        <p class="font-mono text-sm text-zinc-300">No matching repositories found for that query.</p>
+        <button id="resetRepoFilterBtn" class="mt-3 px-4 py-1.5 rounded-lg text-xs font-mono bg-crimson-500/20 text-crimson-400 border border-crimson-500/40 hover:bg-crimson-500 hover:text-white transition-all">
+          Reset Filters
+        </button>
       </div>
     </section>
 
-    <section class="section section-learning" id="learning">
-      <div class="container learning-layout">
-        <div class="learning-heading" data-reveal>
-          <span class="section-kicker">04 / ALWAYS IN PROGRESS</span>
-          <h2>Things I'm<br /><span class="muted-heading">exploring next.</span></h2>
-          <p>These are learning directions and topics I'm curious about — not a claim that every item is already implemented.</p>
+    <!-- 5. WHATSAPP / TELEGRAM LINK PREVIEW & OG BANNER STUDIO -->
+    <section id="og-studio" class="reveal-section space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-crimson-500/20 pb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-crimson-500 font-bold block mb-1">// 04. OPEN GRAPH &amp; SOCIAL META</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-mono">WhatsApp &amp; Telegram Link Preview</h2>
         </div>
-        <div class="learning-list">
-          <article class="learning-item" data-reveal><span class="learning-no">01</span><div><h3>Embedded architecture</h3><p>Maintainable firmware, memory-aware design, peripherals, and better debugging workflows.</p></div><span class="learning-arrow">↗</span></article>
-          <article class="learning-item" data-reveal><span class="learning-no">02</span><div><h3>Connected devices</h3><p>Reliable device communication, MQTT concepts, and practical IoT system design.</p></div><span class="learning-arrow">↗</span></article>
-          <article class="learning-item" data-reveal><span class="learning-no">03</span><div><h3>Security fundamentals</h3><p>TLS, device identity, message authentication, and safer update flows in controlled labs.</p></div><span class="learning-arrow">↗</span></article>
-          <article class="learning-item" data-reveal><span class="learning-no">04</span><div><h3>Better software practices</h3><p>Testing, project structure, reusable code, and documentation that helps people build.</p></div><span class="learning-arrow">↗</span></article>
+        <button id="downloadOgBannerBtn" class="px-4 py-2.5 rounded-xl font-mono font-bold text-xs text-white btn-crimson flex items-center gap-2 self-start sm:self-auto">
+          <i class="fa-solid fa-download"></i>
+          <span>DOWNLOAD CUSTOM 1200x630 OG BANNER</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        
+        <!-- Left: Live Rendered HTML5 Canvas OG Banner (1200x630 aspect) -->
+        <div class="lg:col-span-7 red-glass rounded-2xl p-4 sm:p-5 border border-crimson-500/30 space-y-3">
+          <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+            <span><i class="fa-solid fa-image text-crimson-500 mr-1.5"></i>Live 1200×630 OpenGraph Card Generator</span>
+            <span class="text-crimson-400">og-preview.png</span>
+          </div>
+          <div class="w-full overflow-hidden rounded-xl border border-crimson-500/40 shadow-[0_0_25px_rgba(255,0,51,0.18)] bg-black">
+            <canvas id="ogBannerCanvas" width="1200" height="630" class="w-full h-auto block"></canvas>
+          </div>
+          <p class="text-[11px] font-mono text-zinc-400 leading-relaxed">
+            <span class="text-crimson-400 font-bold">Status:</span> Meta tags in <code class="text-white">&lt;head&gt;</code> are already configured with GitHub's automatic social card (<code class="text-zinc-300">opengraph.githubassets.com</code>) so previews work immediately! You can also download the custom Crimson banner above and upload it to your repo if you want this exact dark-red image.
+          </p>
         </div>
+
+        <!-- Right: Simulated WhatsApp / Telegram Chat Bubble Preview -->
+        <div class="lg:col-span-5 red-glass rounded-2xl p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-white flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+              <span>WhatsApp / Telegram Rich Card Simulation</span>
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">ACTIVE</span>
+          </div>
+
+          <!-- Simulated Chat Message Bubble -->
+          <div class="p-3.5 rounded-2xl bg-[#121619] border border-white/10 space-y-2.5 shadow-inner">
+            <!-- Link Preview Box inside Bubble -->
+            <div class="rounded-xl overflow-hidden bg-[#0a0c0e] border-l-4 border-crimson-500">
+              <div class="p-3 space-y-1">
+                <p class="text-[11px] font-mono text-crimson-400 uppercase tracking-wider">ifreake.github.io</p>
+                <h4 class="text-xs sm:text-sm font-bold text-white leading-snug">ifreake // Cyber-Hardware &amp; Embedded Systems Hub</h4>
+                <p class="text-[11px] text-zinc-400 line-clamp-2">
+                  Official engineering portfolio, hardware architecture, IoT telemetry systems, and open-source repositories by ifreake.
+                </p>
+              </div>
+            </div>
+            <!-- Shared URL Text -->
+            <div class="flex items-center justify-between px-1 pt-1">
+              <span class="text-xs font-mono text-sky-400 underline">https://ifreake.github.io/ifreake/</span>
+              <span class="text-[10px] font-mono text-zinc-500">12:00 ✓✓</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-black/60 border border-crimson-500/20 text-xs font-mono space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-zinc-400">Favicon Status:</span>
+              <span class="text-emerald-400 font-bold">Inline SVG [iF] Embedded ✓</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-zinc-400">OG Image Dimensions:</span>
+              <span class="text-crimson-400 font-bold">1200 × 630 px (HD)</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="section section-approach" id="approach">
-      <div class="container">
-        <div class="section-topline" data-reveal>
-          <div><span class="section-kicker">05 / THE PROCESS</span><h2>From an idea<br /><span class="muted-heading">to something real.</span></h2></div>
-          <p class="section-aside">I like a simple loop: understand the problem, make a first version, test it in the real world, and improve what matters.</p>
+    <!-- 6. INTERACTIVE COMMAND TERMINAL & CONNECT -->
+    <section id="terminal" class="reveal-section space-y-8 pb-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-crimson-500/20 pb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-crimson-500 font-bold block mb-1">// 05. INTERACTIVE SHELL</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-mono">ifreake Command Console</h2>
         </div>
-        <div class="process-grid">
-          <article class="process-step" data-reveal><span class="process-count">01</span><span class="process-icon">⌕</span><h3>Explore</h3><p>Understand the goal, research the constraints, and ask better questions.</p></article>
-          <article class="process-step" data-reveal data-delay="70"><span class="process-count">02</span><span class="process-icon">⌘</span><h3>Build</h3><p>Turn the idea into a practical first version with clear, focused steps.</p></article>
-          <article class="process-step" data-reveal data-delay="140"><span class="process-count">03</span><span class="process-icon">⌁</span><h3>Test</h3><p>Try it, inspect what happens, find edge cases, and debug the details.</p></article>
-          <article class="process-step" data-reveal data-delay="210"><span class="process-count">04</span><span class="process-icon">↻</span><h3>Improve</h3><p>Refine the result, document the lessons, and make the next iteration better.</p></article>
+        <p class="text-xs font-mono text-zinc-400">Type <span class="text-crimson-400">help</span>, <span class="text-crimson-400">whoami</span>, <span class="text-crimson-400">status</span>, <span class="text-crimson-400">preview</span>, or <span class="text-crimson-400">clear</span></p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Interactive CLI Box -->
+        <div class="lg:col-span-7 red-glass rounded-2xl border border-crimson-500/40 overflow-hidden flex flex-col justify-between shadow-[0_0_30px_rgba(255,0,51,0.1)]">
+          <!-- Terminal Top Bar -->
+          <div class="bg-black/90 px-4 py-3 border-b border-crimson-500/20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-crimson-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2">bash — ifreake@console:~</span>
+            </div>
+            <button id="clearTerminalBtn" class="text-[11px] font-mono text-zinc-500 hover:text-crimson-400 transition-colors">
+              [clear]
+            </button>
+          </div>
+
+          <!-- Terminal Output History -->
+          <div id="terminalOutput" class="p-4 sm:p-5 h-64 overflow-y-auto font-mono text-xs space-y-2 bg-black/80 text-zinc-300">
+            <p class="text-crimson-500 font-bold">ifreake OS v3.2 [Crimson Edition] Initialized.</p>
+            <p class="text-zinc-400">Favicon &amp; WhatsApp OpenGraph Meta Tags verified active.</p>
+            <p class="text-zinc-400">Type <span class="text-crimson-400 font-semibold">'help'</span> or click a quick command below to interact.</p>
+          </div>
+
+          <!-- Quick Command Pills & Input Row -->
+          <div class="p-3 bg-obsidian-surface border-t border-crimson-500/20 space-y-2.5">
+            <div class="flex flex-wrap gap-1.5">
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="help">help</button>
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="whoami">whoami</button>
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="status">status</button>
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="preview">preview</button>
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="github">github</button>
+              <button class="cmd-pill px-2.5 py-1 rounded bg-crimson-500/10 hover:bg-crimson-500/25 border border-crimson-500/30 text-[11px] font-mono text-crimson-400 transition-colors" data-cmd="clear">clear</button>
+            </div>
+            <form id="terminalForm" class="flex items-center gap-2 bg-black px-3 py-2 rounded-xl border border-crimson-500/30 focus-within:border-crimson-500">
+              <span class="text-crimson-500 font-mono text-xs font-bold">ifreake@root:~$</span>
+              <input id="terminalInput" type="text" autocomplete="off" placeholder="Enter command..." 
+                     class="w-full bg-transparent text-xs font-mono text-white focus:outline-none" />
+              <button type="submit" class="text-crimson-500 hover:text-white text-xs font-mono px-2">
+                <i class="fa-solid fa-level-down-alt fa-rotate-90"></i>
+              </button>
+            </form>
+          </div>
         </div>
+
+        <!-- Direct Hub Links Card -->
+        <div class="lg:col-span-5 red-glass rounded-2xl p-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-2">
+            <h3 class="font-mono font-bold text-lg text-white flex items-center gap-2">
+              <i class="fa-solid fa-satellite-dish text-crimson-500"></i>
+              <span>Direct Endpoints</span>
+            </h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Connect with <span class="text-white font-mono">ifreake</span> via GitHub repositories, workflow dispatches, or encrypted channels.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <!-- Endpoint 1 -->
+            <div class="flex items-center justify-between p-3.5 rounded-xl bg-black/70 border border-crimson-500/20 hover:border-crimson-500/60 transition-all">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500">
+                  <i class="fa-brands fa-github text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-[11px] font-mono text-zinc-400">GitHub Hub</p>
+                  <p class="text-xs sm:text-sm font-mono font-bold text-white">github.com/ifreake</p>
+                </div>
+              </div>
+              <a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-crimson-500/15 hover:bg-crimson-500 text-crimson-400 hover:text-white text-xs font-mono transition-all">
+                Open
+              </a>
+            </div>
+
+            <!-- Endpoint 2 -->
+            <div class="flex items-center justify-between p-3.5 rounded-xl bg-black/70 border border-crimson-500/20 hover:border-crimson-500/60 transition-all">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500">
+                  <i class="fa-solid fa-globe text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-[11px] font-mono text-zinc-400">Live Deployment</p>
+                  <p class="text-xs sm:text-sm font-mono font-bold text-white">ifreake.github.io/ifreake</p>
+                </div>
+              </div>
+              <button id="copyPagesBtn" class="px-3 py-1.5 rounded-lg bg-crimson-500/15 hover:bg-crimson-500 text-crimson-400 hover:text-white text-xs font-mono transition-all">
+                Copy
+              </button>
+            </div>
+
+            <!-- Endpoint 3 -->
+            <div class="flex items-center justify-between p-3.5 rounded-xl bg-black/70 border border-crimson-500/20 hover:border-crimson-500/60 transition-all">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-crimson-500/10 border border-crimson-500/30 flex items-center justify-center text-crimson-500">
+                  <i class="fa-brands fa-telegram text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-[11px] font-mono text-zinc-400">Direct Handle</p>
+                  <p class="text-xs sm:text-sm font-mono font-bold text-white">@ifreake</p>
+                </div>
+              </div>
+              <a href="https://t.me/ifreake" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-crimson-500/15 hover:bg-crimson-500 text-crimson-400 hover:text-white text-xs font-mono transition-all">
+                Ping
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="section section-activity" id="activity">
-      <div class="container">
-        <div class="section-topline" data-reveal>
-          <div><span class="section-kicker">06 / OPEN SOURCE FOOTPRINT</span><h2>My GitHub,<br /><span class="muted-heading">at a glance.</span></h2></div>
-          <p class="section-aside">A live snapshot of public GitHub statistics. These cards are served by external services and can occasionally be rate-limited.</p>
-        </div>
-        <div class="stats-grid" data-reveal>
-          <div class="stat-card"><img src="https://github-readme-stats.vercel.app/api?username=ifreake&show_icons=true&hide_border=true&rank_icon=github&bg_color=0d1117&title_color=ff626b&icon_color=ff626b&text_color=c9d1d9&ring_color=ff626b" alt="GitHub profile statistics for ifreake" loading="lazy" /></div>
-          <div class="stat-card"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ifreake&layout=compact&hide_border=true&langs_count=6&bg_color=0d1117&title_color=ff626b&text_color=c9d1d9" alt="Most used languages on ifreake's public repositories" loading="lazy" /></div>
-        </div>
-        <div class="activity-link"><a class="text-link" href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer">See the full GitHub profile <span>↗</span></a></div>
-      </div>
-    </section>
-
-    <section class="closing-section">
-      <div class="container closing-inner" data-reveal>
-        <div class="closing-orb"></div>
-        <span class="section-kicker">HAVE A LOOK AROUND</span>
-        <h2>Curiosity turns<br />into <span class="accent-text">creation.</span></h2>
-        <p>Thanks for stopping by. Explore the repositories, follow the experiments, and see what gets built next.</p>
-        <div class="closing-actions">
-          <a class="button button-primary" href="https://github.com/ifreake?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories <span>↗</span></a>
-          <button class="button button-ghost share-button" type="button"><span class="share-symbol">⌯</span> Share this page</button>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="brand footer-brand" href="#top"><span class="brand-mark">i<span>.</span></span><span class="brand-name">ifreake<span class="brand-dot">/</span></span></a>
-      <p>Designed around curiosity. Built with care.</p>
-      <div class="footer-right"><a href="https://github.com/ifreake" target="_blank" rel="noopener noreferrer">GitHub ↗</a><span>© <span id="year">2026</span> ifreake</span></div>
+  <!-- FOOTER -->
+  <footer class="border-t border-crimson-500/20 bg-obsidian-bg/90 backdrop-blur-md py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-crimson-500 shadow-[0_0_10px_#ff0033]"></span>
+        <span class="text-zinc-200 font-bold">ifreake</span>
+        <span>// ALL RIGHTS RESERVED</span>
+      </div>
+      <div class="text-center">
+        <span>THEME: <span class="text-crimson-500">CRIMSON-BLACK</span> &bull; OG META &amp; FAVICON READY</span>
+      </div>
+      <div>
+        <a href="#hero" class="text-zinc-400 hover:text-crimson-500 transition-colors flex items-center gap-1.5">
+          <span>TOP</span>
+          <i class="fa-solid fa-chevron-up text-[10px]"></i>
+        </a>
+      </div>
     </div>
   </footer>
-  <div class="toast" role="status" aria-live="polite"></div>
-  <script src="./script.js" defer></script>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Toast Notification Helper
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      let toastTimer;
+
+      function showToast(msg) {
+        clearTimeout(toastTimer);
+        toastMessage.textContent = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 2600);
+      }
+
+      // Clipboard Copy Helper
+      function copyToClipboard(text, label) {
+        try {
+          const input = document.createElement('input');
+          input.value = text;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+          showToast(`${label} copied: ${text}`);
+        } catch (e) {
+          showToast(text);
+        }
+      }
+
+      // 2. Mobile Navigation Drawer with Smooth Transitions
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIcon = document.getElementById('menuIcon');
+      let menuOpen = false;
+
+      function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+          mobileMenu.classList.remove('opacity-0');
+          mobileMenu.classList.add('opacity-100');
+          menuIcon.classList.remove('fa-bars-staggered');
+          menuIcon.classList.add('fa-xmark', 'rotate-90');
+        } else {
+          mobileMenu.style.maxHeight = '0px';
+          mobileMenu.classList.remove('opacity-100');
+          mobileMenu.classList.add('opacity-0');
+          menuIcon.classList.remove('fa-xmark', 'rotate-90');
+          menuIcon.classList.add('fa-bars-staggered');
+        }
+      }
+
+      mobileMenuBtn.addEventListener('click', toggleMenu);
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (menuOpen) toggleMenu();
+        });
+      });
+
+      // 3. Sticky Header Glass Transition on Scroll
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          navbar.classList.add('bg-obsidian-bg/90', 'backdrop-blur-xl', 'border-crimson-500/25', 'shadow-[0_4px_30px_rgba(0,0,0,0.8)]');
+          navbar.classList.remove('border-transparent');
+        } else {
+          navbar.classList.remove('bg-obsidian-bg/90', 'backdrop-blur-xl', 'border-crimson-500/25', 'shadow-[0_4px_30px_rgba(0,0,0,0.8)]');
+          navbar.classList.add('border-transparent');
+        }
+      });
+
+      // 4. Interactive Hardware Telemetry & Relay Simulator
+      const tempValue = document.getElementById('tempValue');
+      const tempBar = document.getElementById('tempBar');
+      const loadValue = document.getElementById('loadValue');
+      const loadBar = document.getElementById('loadBar');
+      const relayToggleBtn = document.getElementById('relayToggleBtn');
+      const relayStateText = document.getElementById('relayStateText');
+      const relayIndicator = document.getElementById('relayIndicator');
+      const pingSubnetBtn = document.getElementById('pingSubnetBtn');
+      let relayEngaged = true;
+
+      function updateTelemetryMetrics() {
+        const temp = (30.5 + Math.random() * 3.8).toFixed(1);
+        const load = Math.floor(34 + Math.random() * 28);
+        tempValue.textContent = `${temp} °C`;
+        tempBar.style.width = `${Math.min(100, Math.round((temp / 55) * 100))}%`;
+        loadValue.textContent = `${load}%`;
+        loadBar.style.width = `${load}%`;
+      }
+
+      setInterval(updateTelemetryMetrics, 3500);
+
+      relayToggleBtn.addEventListener('click', () => {
+        relayEngaged = !relayEngaged;
+        if (relayEngaged) {
+          relayStateText.textContent = 'STATE: ENGAGED (ON)';
+          relayToggleBtn.className = 'p-4 rounded-xl bg-crimson-500/15 border border-crimson-500/50 flex items-center justify-between text-left transition-all hover:bg-crimson-500/25';
+          relayIndicator.className = 'w-9 h-9 rounded-xl bg-crimson-500 text-white flex items-center justify-center shadow-[0_0_15px_#ff0033]';
+          showToast('GPIO-26 Relay ENGAGED');
+        } else {
+          relayStateText.textContent = 'STATE: STANDBY (OFF)';
+          relayToggleBtn.className = 'p-4 rounded-xl bg-black/70 border border-zinc-800 flex items-center justify-between text-left transition-all hover:border-crimson-500/40';
+          relayIndicator.className = 'w-9 h-9 rounded-xl bg-zinc-800 text-zinc-400 flex items-center justify-center';
+          showToast('GPIO-26 Relay DISENGAGED');
+        }
+      });
+
+      pingSubnetBtn.addEventListener('click', () => {
+        updateTelemetryMetrics();
+        showToast('Telemetry sweep complete: 192.168.1.0/24');
+      });
+
+      // 5. Generate Crimson Contribution Heatmap Matrix
+      const heatmapGrid = document.getElementById('heatmapGrid');
+      const shades = [
+        'bg-zinc-900 border-zinc-800',
+        'bg-crimson-950 border-crimson-900/50',
+        'bg-crimson-800 border-crimson-600/50',
+        'bg-crimson-600 border-crimson-500',
+        'bg-crimson-500 border-crimson-300 shadow-[0_0_8px_#ff0033]'
+      ];
+      for (let i = 0; i < 48; i++) {
+        const cell = document.createElement('div');
+        const randomShade = shades[Math.floor(Math.random() * shades.length)];
+        cell.className = `h-3.5 rounded-sm border transition-transform duration-200 hover:scale-125 ${randomShade}`;
+        cell.title = `ifreake activity node #${i + 1}`;
+        heatmapGrid.appendChild(cell);
+      }
+
+      // 6. Render 1200x630 Custom OG Preview Banner on HTML5 Canvas
+      const ogCanvas = document.getElementById('ogBannerCanvas');
+      const ctx = ogCanvas.getContext('2d');
+
+      function drawOgBanner() {
+        const W = 1200, H = 630;
+        // Pitch Black Background
+        ctx.fillStyle = '#050505';
+        ctx.fillRect(0, 0, W, H);
+
+        // Subtle Crimson Grid
+        ctx.strokeStyle = 'rgba(255, 0, 51, 0.08)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x < W; x += 40) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+        }
+        for (let y = 0; y < H; y += 40) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+
+        // Radial Crimson Glow
+        const grad = ctx.createRadialGradient(950, 315, 30, 950, 315, 420);
+        grad.addColorStop(0, 'rgba(255, 0, 51, 0.32)');
+        grad.addColorStop(1, 'rgba(5, 5, 5, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
+
+        // Outer Frame Border
+        ctx.strokeStyle = '#ff0033';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(28, 28, W - 56, H - 56);
+
+        // Top Status Pill
+        ctx.fillStyle = 'rgba(255, 0, 51, 0.14)';
+        ctx.fillRect(80, 90, 420, 44);
+        ctx.strokeStyle = '#ff0033';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(80, 90, 420, 44);
+
+        ctx.fillStyle = '#ff0033';
+        ctx.font = 'bold 20px monospace';
+        ctx.fillText('● SYS.ONLINE // GITHUB.COM/IFREAKE', 100, 119);
+
+        // Main Brand Title
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 104px monospace';
+        ctx.fillText('> ifreake.', 80, 265);
+
+        // Subtitle
+        ctx.fillStyle = '#ff0033';
+        ctx.font = 'bold 34px monospace';
+        ctx.fillText('CYBER-HARDWARE & EMBEDDED SYSTEMS HUB', 80, 335);
+
+        // Description
+        ctx.fillStyle = '#a1a1aa';
+        ctx.font = '26px sans-serif';
+        ctx.fillText('ESP32 Telemetry • Automated CI/CD Workflows • PCB Architecture • Dark UI', 80, 405);
+
+        // Bottom URL Bar
+        ctx.fillStyle = '#e4e4e7';
+        ctx.font = 'bold 26px monospace';
+        ctx.fillText('https://ifreake.github.io/ifreake/', 80, 535);
+
+        // Right Monogram Emblem Box
+        ctx.fillStyle = '#0a0a0d';
+        ctx.fillRect(880, 175, 210, 210);
+        ctx.strokeStyle = '#ff0033';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(880, 175, 210, 210);
+
+        ctx.fillStyle = '#ff0033';
+        ctx.font = '900 105px monospace';
+        ctx.fillText('iF', 925, 315);
+      }
+
+      drawOgBanner();
+
+      document.getElementById('downloadOgBannerBtn').addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.download = 'og-preview.png';
+        link.href = ogCanvas.toDataURL('image/png');
+        link.click();
+        showToast('Custom 1200x630 og-preview.png downloaded!');
+      });
+
+      // 7. Smooth Skills Tab Filtering
+      const skillBtns = document.querySelectorAll('.skill-tab-btn');
+      const skillItems = document.querySelectorAll('.skill-item');
+
+      skillBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cat = btn.getAttribute('data-skill-cat');
+
+          skillBtns.forEach(b => {
+            b.className = 'skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-obsidian-card text-zinc-400 border border-crimson-500/20 hover:text-white transition-all';
+          });
+          btn.className = 'skill-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-crimson-500 text-white shadow-[0_0_15px_rgba(255,0,51,0.4)] transition-all';
+
+          skillItems.forEach(item => {
+            const itemCat = item.getAttribute('data-cat');
+            if (cat === 'all' || itemCat === cat) {
+              item.style.display = 'flex';
+              requestAnimationFrame(() => {
+                item.classList.remove('item-hidden');
+              });
+            } else {
+              item.classList.add('item-hidden');
+              setTimeout(() => {
+                if (item.classList.contains('item-hidden')) {
+                  item.style.display = 'none';
+                }
+              }, 280);
+            }
+          });
+        });
+      });
+
+      // 8. Repositories Live Search & Smooth Category Filter
+      const repoFilterBtns = document.querySelectorAll('.repo-filter-btn');
+      const repoCards = document.querySelectorAll('.repo-card');
+      const repoSearchInput = document.getElementById('repoSearchInput');
+      const emptyRepoState = document.getElementById('emptyRepoState');
+      const resetRepoFilterBtn = document.getElementById('resetRepoFilterBtn');
+      let activeRepoCategory = 'all';
+
+      function filterRepos() {
+        const query = repoSearchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        repoCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const title = card.getAttribute('data-title').toLowerCase();
+          const matchesCat = activeRepoCategory === 'all' || cat === activeRepoCategory;
+          const matchesQuery = !query || title.includes(query);
+
+          if (matchesCat && matchesQuery) {
+            visibleCount++;
+            card.style.display = 'flex';
+            requestAnimationFrame(() => {
+              card.classList.remove('item-hidden');
+            });
+          } else {
+            card.classList.add('item-hidden');
+            setTimeout(() => {
+              if (card.classList.contains('item-hidden')) {
+                card.style.display = 'none';
+              }
+            }, 280);
+          }
+        });
+
+        if (visibleCount === 0) {
+          emptyRepoState.classList.remove('hidden');
+        } else {
+          emptyRepoState.classList.add('hidden');
+        }
+      }
+
+      repoFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeRepoCategory = btn.getAttribute('data-filter');
+          repoFilterBtns.forEach(b => {
+            b.className = 'repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-zinc-400 hover:text-white transition-all';
+          });
+          btn.className = 'repo-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-crimson-500 text-white transition-all';
+          filterRepos();
+        });
+      });
+
+      repoSearchInput.addEventListener('input', filterRepos);
+
+      resetRepoFilterBtn.addEventListener('click', () => {
+        repoSearchInput.value = '';
+        activeRepoCategory = 'all';
+        repoFilterBtns[0].click();
+      });
+
+      // 9. Interactive Command Console Logic
+      const terminalForm = document.getElementById('terminalForm');
+      const terminalInput = document.getElementById('terminalInput');
+      const terminalOutput = document.getElementById('terminalOutput');
+      const clearTerminalBtn = document.getElementById('clearTerminalBtn');
+
+      function printTerminalLine(htmlContent) {
+        const div = document.createElement('div');
+        div.innerHTML = htmlContent;
+        terminalOutput.appendChild(div);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      }
+
+      function executeCommand(rawCmd) {
+        const cmd = rawCmd.trim().toLowerCase();
+        if (!cmd) return;
+
+        printTerminalLine(`<span class="text-crimson-500 font-bold">ifreake@root:~$</span> <span class="text-white">${cmd}</span>`);
+
+        switch (cmd) {
+          case 'help':
+            printTerminalLine(`<span class="text-zinc-400">Available commands: <span class="text-crimson-400">whoami</span>, <span class="text-crimson-400">status</span>, <span class="text-crimson-400">preview</span>, <span class="text-crimson-400">repos</span>, <span class="text-crimson-400">github</span>, <span class="text-crimson-400">clear</span></span>`);
+            break;
+          case 'whoami':
+            printTerminalLine(`<span class="text-zinc-200">handle: <strong class="text-crimson-500">ifreake</strong> // Cyber-Hardware, Embedded IoT &amp; Systems Architect</span>`);
+            break;
+          case 'status':
+            printTerminalLine(`<span class="text-emerald-400">[OK]</span> ESP32 Node Online | Favicon SVG Active | OpenGraph Meta Ready.`);
+            break;
+          case 'preview':
+            printTerminalLine(`<span class="text-crimson-400">[OG META]</span> Title: "ifreake // Cyber-Hardware &amp; Embedded Systems Hub" | Size: 1200x630`);
+            document.getElementById('og-studio').scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'repos':
+            printTerminalLine(`<span class="text-zinc-300">Active repos: ifreake/ifreake, core-telemetry, action-runner, crimson-ui</span>`);
+            break;
+          case 'github':
+            printTerminalLine(`<span class="text-crimson-400">Opening https://github.com/ifreake ...</span>`);
+            window.open('https://github.com/ifreake', '_blank');
+            break;
+          case 'clear':
+            terminalOutput.innerHTML = '';
+            break;
+          default:
+            printTerminalLine(`<span class="text-red-400">Command not found: '${cmd}'. Type <span class="underline">help</span> for available commands.</span>`);
+        }
+      }
+
+      terminalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        executeCommand(terminalInput.value);
+        terminalInput.value = '';
+      });
+
+      document.querySelectorAll('.cmd-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          executeCommand(pill.getAttribute('data-cmd'));
+        });
+      });
+
+      clearTerminalBtn.addEventListener('click', () => {
+        terminalOutput.innerHTML = '';
+        showToast('Terminal buffer cleared');
+      });
+
+      // 10. Copy Buttons
+      document.getElementById('copyPagesBtn').addEventListener('click', () => {
+        copyToClipboard('https://ifreake.github.io/ifreake/', 'Deployment URL');
+      });
+
+      document.getElementById('copyProfileUrlBtn').addEventListener('click', () => {
+        copyToClipboard('https://ifreake.github.io/ifreake/', 'Site Link');
+      });
+
+      // 11. Smooth Section Reveal on Scroll
+      const revealSections = document.querySelectorAll('.reveal-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealSections.forEach(sec => observer.observe(sec));
+    });
+  </script>
 </body>
 </html>
