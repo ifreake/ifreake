@@ -51,62 +51,48 @@ The tools and technologies I work with or use in my projects.
 <table>
   <tr>
     <td width="50%" valign="top">
-
-### 💻 Programming
-
-<p>
-  <img src="https://skillicons.dev/icons?i=python,cpp,js&theme=dark" alt="Python, C++, JavaScript" />
-</p>
-
-- **Python** — scripting, automation, and development
-- **C++** — embedded programming and firmware
-- **JavaScript** — web fundamentals and interactive interfaces
-
+      <h3>💻 Programming</h3>
+      <p><img src="https://skillicons.dev/icons?i=python,cpp,js&amp;theme=dark" alt="Python, C++, JavaScript" /></p>
+      <ul>
+        <li><strong>Python</strong> — scripting, automation, and development</li>
+        <li><strong>C++</strong> — embedded programming and firmware</li>
+        <li><strong>JavaScript</strong> — web fundamentals and interactive interfaces</li>
+      </ul>
     </td>
     <td width="50%" valign="top">
-
-### 🔌 Embedded & IoT
-
-<p>
-  <img src="https://skillicons.dev/icons?i=arduino&theme=dark" alt="Arduino" />
-  <img src="https://img.shields.io/badge/ESP32-20232a?style=flat-square&logo=espressif&logoColor=E7352C" alt="ESP32" />
-</p>
-
-- Arduino-based projects
-- ESP32 development and experiments
-- Sensors, displays, and hardware interfaces
-- Firmware structure and device diagnostics
-
+      <h3>🔌 Embedded &amp; IoT</h3>
+      <p>
+        <img src="https://skillicons.dev/icons?i=arduino&amp;theme=dark" alt="Arduino" />
+        <img src="https://img.shields.io/badge/ESP32-20232a?style=flat-square&amp;logo=espressif&amp;logoColor=E7352C" alt="ESP32" />
+      </p>
+      <ul>
+        <li>Arduino-based projects</li>
+        <li>ESP32 development and experiments</li>
+        <li>Sensors, displays, and hardware interfaces</li>
+        <li>Firmware structure and device diagnostics</li>
+      </ul>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-
-### 🌐 Web & Interfaces
-
-<p>
-  <img src="https://skillicons.dev/icons?i=html,css,js&theme=dark" alt="HTML, CSS, JavaScript" />
-</p>
-
-- HTML and CSS
-- JavaScript fundamentals
-- Local dashboards and device interfaces
-- Connecting software interfaces to hardware projects
-
+      <h3>🌐 Web &amp; Interfaces</h3>
+      <p><img src="https://skillicons.dev/icons?i=html,css,js&amp;theme=dark" alt="HTML, CSS, JavaScript" /></p>
+      <ul>
+        <li>HTML and CSS</li>
+        <li>JavaScript fundamentals</li>
+        <li>Local dashboards and device interfaces</li>
+        <li>Connecting software interfaces to hardware projects</li>
+      </ul>
     </td>
     <td width="50%" valign="top">
-
-### 🛠️ Tools & Workflow
-
-<p>
-  <img src="https://skillicons.dev/icons?i=git,github,linux,vscode&theme=dark" alt="Git, GitHub, Linux, VS Code" />
-</p>
-
-- Git and GitHub
-- VS Code and PlatformIO
-- Linux development environment
-- Debugging, documentation, and version control
-
+      <h3>🛠️ Tools &amp; Workflow</h3>
+      <p><img src="https://skillicons.dev/icons?i=git,github,linux,vscode&amp;theme=dark" alt="Git, GitHub, Linux, VS Code" /></p>
+      <ul>
+        <li>Git and GitHub</li>
+        <li>VS Code and PlatformIO</li>
+        <li>Linux development environment</li>
+        <li>Debugging, documentation, and version control</li>
+      </ul>
     </td>
   </tr>
 </table>
@@ -120,60 +106,36 @@ A selection of projects that represent the areas I enjoy exploring: embedded dev
 <table>
   <tr>
     <td width="50%" valign="top">
-
-### 🔴 ESP32 CyberLab
-
-<a href="https://github.com/ifreake/ESP32-CyberLab">
-  <img src="https://img.shields.io/badge/OPEN%20PROJECT-ff4d57?style=for-the-badge&logo=github&logoColor=white" alt="Open ESP32 CyberLab" />
-</a>
-
-An educational embedded lab built around ESP32, bringing together device diagnostics, IoT experiments, and defensive network-related features.
-
-**Highlights**
-
-- Wi-Fi discovery with SSID, RSSI, channel, and authentication information
-- SHA-256 hashing experiments
-- LittleFS-based event logging
-- Local browser dashboard
-- Serial command-line interface
-- Optional SSD1306 OLED status display
-
-**Built with**
-
-C++ · ESP32 · Arduino · PlatformIO · LittleFS
-
-<a href="https://github.com/ifreake/ESP32-CyberLab/blob/main/README.md">Documentation</a>
-&nbsp;·&nbsp;
-<a href="https://github.com/ifreake/ESP32-CyberLab">Source code</a>
-
+      <h3>🔴 ESP32 CyberLab</h3>
+      <p><a href="https://github.com/ifreake/ESP32-CyberLab"><img src="https://img.shields.io/badge/OPEN%20PROJECT-ff4d57?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Open ESP32 CyberLab" /></a></p>
+      <p>An educational embedded lab built around ESP32, bringing together device diagnostics, IoT experiments, and defensive network-related features.</p>
+      <p><strong>Highlights</strong></p>
+      <ul>
+        <li>Wi-Fi discovery with SSID, RSSI, channel, and authentication information</li>
+        <li>SHA-256 hashing experiments</li>
+        <li>LittleFS-based event logging</li>
+        <li>Local browser dashboard</li>
+        <li>Serial command-line interface</li>
+        <li>Optional SSD1306 OLED status display</li>
+      </ul>
+      <p><strong>Built with</strong><br />C++ · ESP32 · Arduino · PlatformIO · LittleFS</p>
+      <p><a href="https://github.com/ifreake/ESP32-CyberLab/blob/main/README.md">Documentation</a> &nbsp;·&nbsp; <a href="https://github.com/ifreake/ESP32-CyberLab">Source code</a></p>
     </td>
     <td width="50%" valign="top">
-
-### 🎮 Arduino OLED Tetris
-
-<a href="https://github.com/ifreake/Arduino-OLED-Tetris">
-  <img src="https://img.shields.io/badge/OPEN%20PROJECT-ff4d57?style=for-the-badge&logo=github&logoColor=white" alt="Open Arduino OLED Tetris" />
-</a>
-
-A compact, playable Tetris implementation running on Arduino with a 128×64 SSD1306 OLED display and four physical buttons.
-
-**Highlights**
-
-- All seven classic tetromino shapes
-- Piece rotation and simple wall-kick handling
-- Gravity-based movement and soft drop
-- Collision detection and line clearing
-- Start and game-over screens
-- Lightweight fixed-size data structures
-
-**Built with**
-
-C++ · Arduino · SSD1306 OLED · PlatformIO
-
-<a href="https://github.com/ifreake/Arduino-OLED-Tetris/blob/main/README.md">Documentation</a>
-&nbsp;·&nbsp;
-<a href="https://github.com/ifreake/Arduino-OLED-Tetris">Source code</a>
-
+      <h3>🎮 Arduino OLED Tetris</h3>
+      <p><a href="https://github.com/ifreake/Arduino-OLED-Tetris"><img src="https://img.shields.io/badge/OPEN%20PROJECT-ff4d57?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Open Arduino OLED Tetris" /></a></p>
+      <p>A compact, playable Tetris implementation running on Arduino with a 128×64 SSD1306 OLED display and four physical buttons.</p>
+      <p><strong>Highlights</strong></p>
+      <ul>
+        <li>All seven classic tetromino shapes</li>
+        <li>Piece rotation and simple wall-kick handling</li>
+        <li>Gravity-based movement and soft drop</li>
+        <li>Collision detection and line clearing</li>
+        <li>Start and game-over screens</li>
+        <li>Lightweight fixed-size data structures</li>
+      </ul>
+      <p><strong>Built with</strong><br />C++ · Arduino · SSD1306 OLED · PlatformIO</p>
+      <p><a href="https://github.com/ifreake/Arduino-OLED-Tetris/blob/main/README.md">Documentation</a> &nbsp;·&nbsp; <a href="https://github.com/ifreake/Arduino-OLED-Tetris">Source code</a></p>
     </td>
   </tr>
 </table>
@@ -213,13 +175,9 @@ These are areas I want to keep learning about and experimenting with. They are l
 
 ## How I like to build
 
-<div align="center">
-
 | 01 · Explore | 02 · Build | 03 · Test | 04 · Improve |
 |:---:|:---:|:---:|:---:|
 | Understand the problem | Turn ideas into code | Debug on real setups | Refine and document |
-
-</div>
 
 For me, a project is more than the final result. The experiments, failed attempts, debugging sessions, and small improvements are all part of the process.
 
