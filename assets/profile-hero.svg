@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">ifreake — Software meets hardware</title>
+  <desc id="desc">A dark graphite profile banner with red circuit-inspired details.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/>
+      <stop offset="0.62" stop-color="#111820"/>
+      <stop offset="1" stop-color="#211116"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff454f"/>
+      <stop offset="1" stop-color="#ff856d"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#8a98a8" stroke-opacity=".10" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ff4d57" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#ff4d57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="300" rx="22" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="22" fill="url(#grid)"/>
+  <circle cx="1030" cy="150" r="230" fill="url(#glow)"/>
+  <path d="M0 260H530L570 220H760" fill="none" stroke="#ff5963" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M760 48H910L948 86H1120" fill="none" stroke="#ff5963" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M850 270H1010L1050 230H1200" fill="none" stroke="#ff5963" stroke-opacity=".22" stroke-width="2"/>
+  <g fill="#ff5963">
+    <circle cx="530" cy="260" r="4"/><circle cx="760" cy="220" r="4"/>
+    <circle cx="910" cy="48" r="4"/><circle cx="1120" cy="86" r="4"/>
+    <circle cx="1010" cy="270" r="4"/>
+  </g>
+  <rect x="66" y="58" width="5" height="180" rx="2.5" fill="url(#accent)"/>
+  <text x="94" y="92" fill="#ff777b" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="4">SOFTWARE  /  HARDWARE  /  CURIOSITY</text>
+  <text x="90" y="164" fill="#f0f3f6" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="-1">Hey, I'm <tspan fill="#ff626b">ifreake</tspan>.</text>
+  <text x="94" y="204" fill="#b8c1cc" font-family="Segoe UI, Arial, sans-serif" font-size="21">Building practical things with code, circuits, and curiosity.</text>
+  <g transform="translate(850 87)">
+    <rect x="35" y="22" width="170" height="125" rx="16" fill="#111820" stroke="#ff626b" stroke-opacity=".8" stroke-width="2"/>
+    <rect x="56" y="43" width="128" height="83" rx="9" fill="#171f29" stroke="#596675" stroke-opacity=".7"/>
+    <path d="M12 42H35M12 65H35M12 88H35M12 111H35M205 42H228M205 65H228M205 88H228M205 111H228M75 0V22M105 0V22M135 0V22M165 0V22M75 147V169M105 147V169M135 147V169M165 147V169" fill="none" stroke="#ff777b" stroke-width="4" stroke-linecap="round" stroke-opacity=".8"/>
+    <path d="M81 101V68H103L118 84L139 59H158V101" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="120" cy="84" r="5" fill="#ff777b"/>
+  </g>
+  <text x="94" y="254" fill="#8995a3" font-family="Segoe UI, Arial, sans-serif" font-size="13" letter-spacing="2">PYTHON  ·  C++  ·  ESP32  ·  IoT  ·  WEB</text>
+</svg>
